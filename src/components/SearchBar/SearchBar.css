@@ -1,0 +1,33 @@
+#SearchBar-container {
+    height: 30px;
+    margin-left: 50px;
+    margin-right: auto;
+    border-width: 0 5px 5px 0;
+    border-color: red;
+    border-style: solid;
+    
+    display: flex;
+    filter: drop-shadow(0px 0px 10px #f02742);
+
+    transform: skewX(-20deg);
+}
+
+#SearchBar-input,
+#SearchBar-button {
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bolder;
+    color: var(--color-dark-first);
+}
+
+#SearchBar-input {
+    padding-left: 20px;
+    background-color: white;
+}
+
+#SearchBar-button {
+    height: auto;
+    padding: 0px 10px;
+
+    background-color: var(--color-light-gray);
+}
