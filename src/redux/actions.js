@@ -4,7 +4,7 @@ import axios from 'axios'
 export const getAllTeams = () => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.get('http://localhost:3001/teams')
+            const { data } = await axios.get('/teams')
             dispatch({
                 type: 'GET_TEAMS',
                 payload: data,
@@ -18,7 +18,7 @@ export const getAllTeams = () => {
 export const getAllDrivers = () => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.get('http://localhost:3001/drivers')
+            const { data } = await axios.get('/drivers')
             dispatch({
                 type: 'GET_ALL_DRIVERS',
                 payload: data
@@ -32,7 +32,7 @@ export const getAllDrivers = () => {
 export const addDriver = (driver) => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.post('http://localhost:3001/drivers', driver)
+            const { data } = await axios.post('/drivers', driver)
             log
             dispatch({
                 type: 'ADD_DRIVER',
@@ -47,7 +47,7 @@ export const addDriver = (driver) => {
 export const getDriversForName = (name) => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.get(`http://localhost:3001/drivers/name?name=${name}`)
+            const { data } = await axios.get(`/drivers/name?name=${name}`)
             dispatch({
                 type: 'GET_DRIVERS_FOR_NAME',
                 payload: data

@@ -14,7 +14,7 @@ export const Detail = () => {
 
     const getDriver = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:3001/drivers/${id}`)
+            const { data } = await axios.get(`/drivers/${id}`)
             console.log(await {
                 ...data,
             });
@@ -27,7 +27,7 @@ export const Detail = () => {
         let retVal = confirm(`You're about to delete ${driver.name} ${driver.surname}\nAre you sure to continue?`);
         if (retVal) {
             try {
-                const { data } = await axios.delete(`http://localhost:3001/drivers/${id}`)
+                const { data } = await axios.delete(`/drivers/${id}`)
                 dispatch(getAllDrivers());
                 alert(`${data[0].name} has been dismissed`)
                 navigate('/home')
