@@ -1,0 +1,170 @@
+#Detail-container {
+    max-width: 75%;
+    height: max-content;
+
+    padding: 0 20px 20px 0;
+
+    color: var(--color-dark-second);
+    background-color: white;
+    position: relative;
+    left: 10%;
+    top: 100px;
+}
+
+#form-section-container-header {
+    min-height: 100px;
+    max-height: min-content;
+    display: flex;
+
+    background-color: var(--color-dark-second);
+}
+
+#header-image {
+    width: 200px;
+    height: 100px;
+}
+
+#header-button {
+    width: 100px;
+    height: 100px;
+
+    background-color: #00000000;
+    background-image: url('/F1.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    transition: transform 0.5s 0s;
+}
+
+#header-button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#header-title {
+    width: 100%;
+    border-bottom-left-radius: 10px;
+
+    background-color: white;
+}
+
+
+#Form-section-container-data {
+    width: 100%;
+    height: 50%;
+
+    border-top-right-radius: 15px;
+    border-color: var(--color-dark-second);
+    border-width: 10px;
+    border-top-style: solid;
+    border-right-style: solid;
+
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-template-rows: 300px;
+}
+
+#Form-image {
+    width: min-content;
+    margin: 0;
+}
+
+#Detail-image {
+    max-width: 400px;
+    max-height: 300px;
+}
+
+#Form-description {
+    display: flex;
+    flex-direction: column;
+}
+
+#Detail-textarea-description {
+    padding: 20px;
+    resize: none;
+    text-align: left;
+    overflow-x: hidden;
+}
+
+#Detail-textarea-description::-webkit-scrollbar {
+    width: 12px;
+}
+
+#Detail-textarea-description::-webkit-scrollbar-track {
+    background: gray;
+}
+
+#Detail-description::-webkit-scrollbar-thumb {
+    background-color: var(--color-dark-first);
+    border-radius: 20px;
+    border: 2px solid gray;
+}
+
+/** INPUT */
+
+label {
+    margin: 0 5px;
+}
+
+.input-form {
+    color: var(--color-dark-second);
+    background-color: var(--color-white);
+}
+
+.input-header {
+    max-width: max-content;
+    padding-right: 5px;
+
+    border-width: 0 5px 5px 0;
+    border-style: groove;
+    border-color: var(--color-dark-second);
+    /*red;*/
+
+    text-align: right;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    transform: skewX(-15deg);
+}
+
+.input-name {
+    border-width: 0 0 5px 0;
+    border-style: groove;
+    border-color: var(--color-dark-second);
+    /*red;*/
+}
+
+/** TEAM BUTTON*/
+#teams-section {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.team-button {
+    height: max-content;
+    margin: 5px;
+    color: var(--color-dark-second);
+    background-color: #00000000;
+
+    transition: all 250ms 0s;
+}
+
+.team-button:hover {
+    transform: translateY(-5px);
+}
+
+.error-message,
+.alert-message {
+    /* font-size: 12px; */
+    cursor: help;
+}
+
+.error-message {
+    color: red;
+}
+
+.alert-message {
+    color: orange;
+}

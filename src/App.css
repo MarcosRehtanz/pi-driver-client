@@ -1,0 +1,46 @@
+#root {
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.Effect-button {
+  width: 75px;
+  height: 25px;
+  padding: 2.5px 0 0 0;
+  
+  /* border-radius: 5px;*/
+  border: 0 solid #00000000 ;
+  border-width: 0  5px 5px 0; 
+
+  
+  border-radius: 0 0px;
+  border-color: var(--color-dark-first);
+  background-color: rgba(255, 255, 255, 1);
+  
+  transform: skew(-15deg, 0deg);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 800;
+  color: var(--color-dark-first);
+  background-color: var(--color-white);
+
+  transition-duration: 0.25s;
+  transition-property: all;
+  
+}
+.Effect-button:hover {
+  transform: scale(1.1) skew(-15deg, 0deg) translate(5px, -1px);
+
+  border-radius: 0 20px;
+  border-color: red;
+  background-color: rgba(255, 255, 255, 1);
+
+  color: var(--color-dark-second);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  cursor: pointer;
+
+  position: relative;
+  z-index: 10;
+}

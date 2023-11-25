@@ -1,0 +1,70 @@
+#FilterBar-container {
+    /* background-color: var(--color-dark-first); */
+    width: 220px;
+    min-width: min-content;
+    height: 100%;
+    padding: 2rem 0;
+
+    position: fixed;
+
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+#form-filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+}
+
+#origin,
+#teams,
+#order {
+    width: 100px;
+    padding: 5px 15%;
+
+    border: 2px solid rgba(100, 100, 100, 0.2);
+    border-width: 2px 0 0 0;
+}
+
+#origin {
+    display: grid;
+    grid-template-columns: max-content auto;
+    font-size: small;
+}
+
+
+#origin label {
+    margin-right: auto;
+}
+
+#form-filter select {
+    width: 100px;
+    color: var(--color-dark-first);
+    background-color: white;
+    transform: skew(-15deg);
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: gray;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--color-dark-first);
+    border-radius: 20px;
+    border: 2px solid gray;
+}
+/* 
+
+@media (max-width: 1024px) {
+    #FilterBar-container {
+        width: 150px;
+        overflow: hidden;
+    }
+} */
