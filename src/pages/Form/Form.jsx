@@ -122,7 +122,9 @@ export const Form = () => {
             alert('Successfull registration')
             navigate('/home')
         } catch (err) {
+            console.log(err.message);
             if (err.response.status === 409) alert('⚠ This driver has already been registered')
+            else if (err.response.status === 413) alert('⚠ This image is too hard')
             else alert(err.message)
         }
     }
@@ -191,8 +193,8 @@ export const Form = () => {
                     {!driver.teams.length
                         ? <label title={errors.teams} className='error-message'>⚠</label>
                         : <div id="teams-section">
-                            {driver.teams?.map((team) =>
-                                <button onClick={removeTeam} className='team-button input-header' name={team}>{team}</button>
+                            {driver.teams?.map((team,i) =>
+                                <button key={team+i} onClick={removeTeam} className='team-button input-header' name={team}>{team}</button>
                             )}
                         </div>
                     }

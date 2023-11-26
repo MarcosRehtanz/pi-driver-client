@@ -9,9 +9,7 @@ export const getAllTeams = () => {
                 type: 'GET_TEAMS',
                 payload: data,
             })
-        } catch (error) {
-            dispatch()
-        }
+        } catch (error) { }
     }
 }
 
@@ -23,9 +21,7 @@ export const getAllDrivers = () => {
                 type: 'GET_ALL_DRIVERS',
                 payload: data
             })
-        } catch (error) {
-            dispatch()
-        }
+        } catch (error) { }
     }
 }
 
@@ -60,7 +56,7 @@ export const getDriversForName = (name) => {
 }
 
 export const setFilter = (filter) => {
-    console.log(filter)
+    // console.log(filter)
     return {
         type: 'FILTER',
         payload: filter

@@ -18,12 +18,11 @@ export const DriversCards = () => {
   // todos los drivers filtrados
   const filterDrivers = useSelector((state) => state.filterDrivers);
 
-  axios.get("http//lohos:301").then(({ data }) => setDrivers(data));
+  // axios.get("http//lohos:301").then(({ data }) => setDrivers(data));
 
   // Renderizado de las cartas
   const renderCards = () => {
-    const arr = drivers.slice(selector * 9 - 9, selector * 9);
-
+    const arr = filterDrivers.slice(selector * 9 - 9, selector * 9);
     return arr?.map(({ id, name, surname, image, teams, birthdate }) => {
       return (
         <DriverCard
