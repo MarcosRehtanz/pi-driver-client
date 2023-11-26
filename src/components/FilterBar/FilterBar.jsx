@@ -48,7 +48,7 @@ export const FilterBar = () => {
                     {allTeams
                         ? <select onChange={e => handlerOrigin(e)} value={formFilter.teams} name="teams" >
                             <option value='*' >All teams</option>
-                            {allTeams.map((team, index) => {
+                            {allTeams?.map((team, index) => {
                                 return <option key={index} value={team.name} >{team.name}</option>
                             })}
                         </select>

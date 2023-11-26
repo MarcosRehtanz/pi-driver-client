@@ -46,13 +46,13 @@ export const Form = () => {
             const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/drivers/${id}`)
             console.log(await {
                 ...data,
-                teams: data.teams.map((team) => team.name).join(', '),
-                oldTeams: data.teams.map((team) => team.name).join(', ')
+                teams: data.teams?.map((team) => team.name).join(', '),
+                oldTeams: data.teams?.map((team) => team.name).join(', ')
             });
             setDriver({
                 ...data,
-                teams: data.teams.map((team) => team.name),
-                oldTeams: data.teams.map((team) => team.name)
+                teams: data.teams?.map((team) => team.name),
+                oldTeams: data.teams?.map((team) => team.name)
             })
         } catch (error) {
             navigate('/home')
@@ -186,12 +186,12 @@ export const Form = () => {
                     <label className='label-name' >Teams</label>
                     <select onChange={handleChange} name="teams" id="">
                         <option value='0'>Select a Team *</option>
-                        {allTeams.map(team => <option value={team.name} >{team.name}</option>)}
+                        {allTeams?.map(team => <option value={team.name} >{team.name}</option>)}
                     </select>
                     {!driver.teams.length
                         ? <label title={errors.teams} className='error-message'>⚠</label>
                         : <div id="teams-section">
-                            {driver.teams.map((team) =>
+                            {driver.teams?.map((team) =>
                                 <button onClick={removeTeam} className='team-button input-header' name={team}>{team}</button>
                             )}
                         </div>

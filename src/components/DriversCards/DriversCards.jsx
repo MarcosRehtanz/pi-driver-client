@@ -24,7 +24,7 @@ export const DriversCards = () => {
   const renderCards = () => {
     const arr = drivers.slice(selector * 9 - 9, selector * 9);
 
-    return arr.map(({ id, name, surname, image, teams, birthdate }) => {
+    return arr?.map(({ id, name, surname, image, teams, birthdate }) => {
       return (
         <DriverCard
           key={id}

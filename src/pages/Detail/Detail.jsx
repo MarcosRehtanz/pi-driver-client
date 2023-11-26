@@ -51,7 +51,7 @@ export const Detail = () => {
                     <h1>{driver.name} {driver.surname}</h1>
                     <p>{driver.birthdate} {driver.nationality}</p>
                     {
-                        driver?.teams ? <p>{driver?.teams?.map(team => team?.name).join(', ')}</p> : ''
+                        driver?.teams ? <p>{driver?.teams??.map(team => team?.name).join(', ')}</p> : ''
                     }
                 </div>
             </section>

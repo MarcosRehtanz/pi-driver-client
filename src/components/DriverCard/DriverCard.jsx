@@ -12,9 +12,9 @@ export const DriverCard = ({ id, name, surname, image, teams, birthdate }) => {
             </div>
             <div>
                 <p style={{ color: 'black' }}>{birthdate}</p>
-                {teams ? <p className='DriverCard-data'>{teams.map((team) => team.name).join(', ')}</p> : ''}
+                {teams ? <p className='DriverCard-data'>{teams?.map((team) => team.name).join(', ')}</p> : ''}
             </div>
-            {/* {teams ? <div className='DiverCard-data'>{teams.map((team, i) => <p key={i}>{team.name}</p>)}</div> : ''} */}
+            {/* {teams ? <div className='DiverCard-data'>{teams?.map((team, i) => <p key={i}>{team.name}</p>)}</div> : ''} */}
         </Link>
 
     )
