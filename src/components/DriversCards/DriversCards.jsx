@@ -1,101 +1,137 @@
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-import { DriverCard } from '../DriverCard/DriverCard'
-import { useSelector } from 'react-redux'
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { DriverCard } from "../DriverCard/DriverCard";
+import { useSelector } from "react-redux";
 
-import './DriversCards.css'
-import image from '../../assets/Formula-One.png'
-import { ErrorSection } from '../ErrorSection/ErrorSection'
+import "./DriversCards.css";
+import image from "../../assets/Formula-One.png";
+import { ErrorSection } from "../ErrorSection/ErrorSection";
 
 export const DriversCards = () => {
+  const [pages, setPages] = useState(0);
+  const [selector, setSelector] = useState(1);
 
-    const [pages, setPages] = useState(0)
-    const [selector, setSelector] = useState(1)
-<<<<<<< HEAD
+  // corredores para el paginado
+  const [drivers, setDrivers] = useState([]);
+  const [error, setError] = useState("");
 
-    // corredores para el paginado 
-    const [drivers, setDrivers] = useState([])
-    const [error, setError] = useState('')
+  // todos los drivers filtrados
+  const filterDrivers = useSelector((state) => state.filterDrivers);
 
-    // todos los drivers filtrados
-    const filterDrivers = useSelector(state => state.filterDrivers)
+  axios.get("http//lohos:301").then(({ data }) => setDrivers(data));
 
-    axios.get("http//lohos:301").then( ({ data }) => setDrivers(data) )
+  // Renderizado de las cartas
+  const renderCards = () => {
+    const arr = drivers.slice(selector * 9 - 9, selector * 9);
 
-    // Renderizado de las cartas
-    const renderCards = () => {
-        
-                                        // 0      -  9
-        const arr = drivers.slice(selector * 9 - 9, selector * 9);
+    return arr.map(({ id, name, surname, image, teams, birthdate }) => {
+      return (
+        <DriverCard
+          key={id}
+          id={id}
+          name={name}
+          surname={surname}
+          image={
+            image
+              ? image
+              : "https://cdn.pixabay.com/photo/2013/07/12/15/36/motorsports-150157_960_720.png"
+          }
+          teams={teams ? teams.sort((a, b) => a.id - b.id) : [teams]}
+          birthdate={birthdate}
+        />
+      );
+    });
+  };
 
-=======
-    const [drivers, setDrivers] = useState([])
-    const [error, setError] = useState('')
-    const filterDrivers = useSelector(state => state.filterDrivers)
+  const handlePage = (page) => {
+    setSelector(page);
+  };
 
-    const renderCards = () => {
-        const arr = drivers.slice(selector * 9 - 9, selector * 9);
->>>>>>> 2a0c46d49a62f39d3bd396319a1f7bade3a95e0d
-        return arr.map(({ id, name, surname, image, teams, birthdate }) => {
+  useEffect(() => {
+    setDrivers(filterDrivers);
+    setPages(Math.ceil(filterDrivers.length / 9));
+    setSelector(1);
+  }, [filterDrivers]);
 
-            return <DriverCard
-                key={id}
-                id={id}
-                name={name}
-                surname={surname}
-                image={image ? image : 'https://cdn.pixabay.com/photo/2013/07/12/15/36/motorsports-150157_960_720.png'}
-                teams={teams ? teams.sort((a, b) => a.id - b.id) : [teams]}
-                birthdate={birthdate}
-            />
-        })
-    }
+  return (
+    <div id="DriversCards-container">
+      {error ? <label className="error-message">{error}</label> : <br />}
 
+      <section id="selector-container">
+        {selector <= 2 ? (
+          <button
+            disabled
+            className="button-left enabled-button"
+            onClick={() => handlePage(1)}
+          >
+            1
+          </button>
+        ) : (
+          <button
+            className="button-left button-selector"
+            onClick={() => handlePage(1)}
+          >
+            1
+          </button>
+        )}
+        {selector <= 1 ? (
+          <button
+            disabled
+            className="button-left enabled-button"
+            onClick={() => handlePage(selector - 1)}
+          >
+            ◄
+          </button>
+        ) : (
+          <button
+            className="button-left button-selector"
+            onClick={() => handlePage(selector - 1)}
+          >
+            ◄
+          </button>
+        )}
+        <span>{selector}</span>
+        {selector >= pages ? (
+          <button
+            disabled
+            className="button-right enabled-button"
+            onClick={() => handlePage(selector + 1)}
+          >
+            ►
+          </button>
+        ) : (
+          <button
+            className="button-right button-selector"
+            onClick={() => handlePage(selector + 1)}
+          >
+            ►
+          </button>
+        )}
+        {selector >= pages - 1 ? (
+          <button
+            disabled
+            className="button-right enabled-button"
+            onClick={() => handlePage(pages)}
+          >
+            {pages}
+          </button>
+        ) : (
+          <button
+            className="button-right button-selector"
+            onClick={() => handlePage(pages)}
+          >
+            {pages}
+          </button>
+        )}
+      </section>
 
-    const handlePage = (page) => {
-        setSelector(page)
-    }
-
-    useEffect(() => {
-        setDrivers(filterDrivers)
-<<<<<<< HEAD
-        setPages( Math.ceil( filterDrivers.length / 9 ))
-=======
-        setPages(Math.ceil(filterDrivers.length / 9))
->>>>>>> 2a0c46d49a62f39d3bd396319a1f7bade3a95e0d
-        setSelector(1)
-    }, [filterDrivers])
-
-    return (
-        <div id='DriversCards-container'>
-            {error ? <label className='error-message'>{error}</label> : <br />}
-
-            <section id='selector-container' >
-                {selector <= 2
-                    ? <button disabled className='button-left enabled-button' onClick={() => handlePage(1)} >1</button>
-                    : <button className='button-left button-selector' onClick={() => handlePage(1)} >1</button>}
-                {selector <= 1
-                    ? <button disabled className='button-left enabled-button' onClick={() => handlePage(selector - 1)} >◄</button>
-                    : <button className='button-left button-selector' onClick={() => handlePage(selector - 1)} >◄</button>}
-                <span>{selector}</span>
-                {selector >= pages
-                    ? <button disabled className='button-right enabled-button' onClick={() => handlePage(selector + 1)} >►</button>
-                    : <button className='button-right button-selector' onClick={() => handlePage(selector + 1)} >►</button>}
-                {selector >= pages - 1
-                    ? <button disabled className='button-right enabled-button' onClick={() => handlePage(pages)} >{pages}</button>
-                    : <button className='button-right button-selector' onClick={() => handlePage(pages)} >{pages}</button>}
-            </section>
-
-            <section id='cards-section' >
-                {drivers.length
-                    ? renderCards()
-                    : <ErrorSection
-                    message={`Don't matched results`}
-                    url={image}
-                    />
-            }
-            </section>
-
-        </div>
-    )
-
-}
+      <section id="cards-section">
+        {drivers.length ? (
+          renderCards()
+        ) : (
+          <ErrorSection message={`Don't matched results`} url={image} />
+        )}
+      </section>
+    </div>
+  );
+};
