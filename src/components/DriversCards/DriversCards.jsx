@@ -11,6 +11,7 @@ export const DriversCards = () => {
 
     const [pages, setPages] = useState(0)
     const [selector, setSelector] = useState(1)
+<<<<<<< HEAD
 
     // corredores para el paginado 
     const [drivers, setDrivers] = useState([])
@@ -27,6 +28,14 @@ export const DriversCards = () => {
                                         // 0      -  9
         const arr = drivers.slice(selector * 9 - 9, selector * 9);
 
+=======
+    const [drivers, setDrivers] = useState([])
+    const [error, setError] = useState('')
+    const filterDrivers = useSelector(state => state.filterDrivers)
+
+    const renderCards = () => {
+        const arr = drivers.slice(selector * 9 - 9, selector * 9);
+>>>>>>> 2a0c46d49a62f39d3bd396319a1f7bade3a95e0d
         return arr.map(({ id, name, surname, image, teams, birthdate }) => {
 
             return <DriverCard
@@ -48,7 +57,11 @@ export const DriversCards = () => {
 
     useEffect(() => {
         setDrivers(filterDrivers)
+<<<<<<< HEAD
         setPages( Math.ceil( filterDrivers.length / 9 ))
+=======
+        setPages(Math.ceil(filterDrivers.length / 9))
+>>>>>>> 2a0c46d49a62f39d3bd396319a1f7bade3a95e0d
         setSelector(1)
     }, [filterDrivers])
 

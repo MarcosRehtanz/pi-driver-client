@@ -23,6 +23,7 @@ export const Form = () => {
         oldTeams: [],
     })
 
+<<<<<<< HEAD
     const changeUpload = async (event) => {
         const file = event.target.files[0];
 
@@ -44,6 +45,11 @@ export const Form = () => {
     const getDriver = async () => {
         try {
             const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/drivers/${id}`)
+=======
+    const getDriver = async () => {
+        try {
+            const { data } = await axios.get(`/drivers/${id}`)
+>>>>>>> 2a0c46d49a62f39d3bd396319a1f7bade3a95e0d
             console.log(await {
                 ...data,
                 teams: data.teams.map((team) => team.name).join(', '),
@@ -105,7 +111,11 @@ export const Form = () => {
         else {
             console.log(driver);
             try {
+<<<<<<< HEAD
                 await axios.put(`${import.meta.env.VITE_SERVER}/drivers`, driver)
+=======
+                await axios.put(`/drivers`, driver)
+>>>>>>> 2a0c46d49a62f39d3bd396319a1f7bade3a95e0d
                 alert('This driver was updated successfully')
                 navigate(`/drivers/${id}`)
             } catch (error) {
@@ -118,7 +128,11 @@ export const Form = () => {
 
         try {
             console.log(driver);
+<<<<<<< HEAD
             await axios.post('${import.meta.env.VITE_SERVER}/drivers', driver)
+=======
+            await axios.post('/drivers', driver)
+>>>>>>> 2a0c46d49a62f39d3bd396319a1f7bade3a95e0d
             alert('Successfull registration')
             navigate('/home')
         } catch (err) {
@@ -172,8 +186,12 @@ export const Form = () => {
                                 ? <label title={errors.birthdate} className="alert-message">⚠</label>
                                 : <label title={errors.birthdate} className='error-message'>⚠</label>}
                         <label className='label-name' >DOB</label>
+<<<<<<< HEAD
                         <input title="Input DOB" role="textbox" autoComplete="off" placeholder="birthdate" value={driver.birthdate} onChange={handleChange} name="birthdate" className='input-form input-da
                         te input-header' type="date" />
+=======
+                        <input title="Input DOB" role="textbox" autoComplete="off" placeholder="birthdate" value={driver.birthdate} onChange={handleChange} name="birthdate" className='input-form input-date input-header' type="date" />
+>>>>>>> 2a0c46d49a62f39d3bd396319a1f7bade3a95e0d
 
                         {!errors.nationality
                             ? <label style={{ color: 'transparent' }}>⚠</label>
@@ -188,6 +206,17 @@ export const Form = () => {
                         <option value='0'>Select a Team *</option>
                         {allTeams.map(team => <option value={team.name} >{team.name}</option>)}
                     </select>
+<<<<<<< HEAD
+=======
+
+                    {/* <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)'}}>
+                        {allTeams.map(team => <div style={{marginRight: 'auto', marginLeft:'15px'}}>
+                            <input onChange={handleChange} name="teams" value={team.name} key={team.name} type="checkbox" />
+                            <label htmlFor={team.name}>{team.name}</label>
+                        </div>)}
+                    </div> */}
+
+>>>>>>> 2a0c46d49a62f39d3bd396319a1f7bade3a95e0d
                     {!driver.teams.length
                         ? <label title={errors.teams} className='error-message'>⚠</label>
                         : <div id="teams-section">
@@ -202,7 +231,11 @@ export const Form = () => {
                 <div id="Form-image">
                     <div className='input-section' >
                         <label className='label-name' >Imagen</label>
+<<<<<<< HEAD
                         <input title="Input Image" type="file" accept="image/*" autoComplete="off" placeholder="URL" onChange={changeUpload} name="image" className='input-form input-header' />
+=======
+                        <input title="Input Image" autoComplete="off" placeholder="URL" value={driver.image} onChange={handleChange} name="image" className='input-form input-header' type="url" />
+>>>>>>> 2a0c46d49a62f39d3bd396319a1f7bade3a95e0d
                     </div>
                     <img id="Detail-image" src={driver.image ? driver.image : 'https://cdn.pixabay.com/photo/2013/07/12/15/36/motorsports-150157_960_720.png'} alt={driver.name} />
                 </div>

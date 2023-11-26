@@ -14,7 +14,11 @@ export const Detail = () => {
 
     const getDriver = async () => {
         try {
+<<<<<<< HEAD
             const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/drivers/${id}`)
+=======
+            const { data } = await axios.get(`/drivers/${id}`)
+>>>>>>> 2a0c46d49a62f39d3bd396319a1f7bade3a95e0d
             console.log(await {
                 ...data,
             });
@@ -27,7 +31,11 @@ export const Detail = () => {
         let retVal = confirm(`You're about to delete ${driver.name} ${driver.surname}\nAre you sure to continue?`);
         if (retVal) {
             try {
+<<<<<<< HEAD
                 const { data } = await axios.delete(`${import.meta.env.VITE_SERVER}/drivers/${id}`)
+=======
+                const { data } = await axios.delete(`/drivers/${id}`)
+>>>>>>> 2a0c46d49a62f39d3bd396319a1f7bade3a95e0d
                 dispatch(getAllDrivers());
                 alert(`${data[0].name} has been dismissed`)
                 navigate('/home')
