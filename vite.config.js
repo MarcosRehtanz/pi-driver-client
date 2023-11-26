@@ -9,4 +9,19 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './test/setup.js'
   },
+  build: {
+    rollupOptions: {
+      plugins: [
+        {
+          name: 'disable-parsing',
+          transform(code) {
+            return {
+              code,
+              map: null,
+            };
+          },
+        },
+      ],
+    },
+  },
 })

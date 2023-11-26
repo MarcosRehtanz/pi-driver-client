@@ -1,8 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams, Link, useNavigate, useLocation } from "react-router-dom"
+import { useParams, useNavigate, useLocation } from "react-router-dom"
 import { useSelector } from "react-redux"
-import { validate } from './validate'
+import { validate } from './validate.ts'
 import './Form.css'
 
 export const Form = () => {
