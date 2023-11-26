@@ -118,7 +118,7 @@ export const Form = () => {
 
         try {
             console.log(driver);
-            await axios.post('${import.meta.env.VITE_SERVER}/drivers', driver)
+            await axios.post(`${import.meta.env.VITE_SERVER}/drivers`, driver)
             alert('Successfull registration')
             navigate('/home')
         } catch (err) {
